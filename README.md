@@ -238,11 +238,60 @@ Here we created two rows by giving each div a class of `row`. Next in the CSS we
 }
 ```
 
-Here on line 
+Here on line 7 we set rows to `clear:both` so  they will display vertically regardless of any floating elements above them. On line 10 we use our clearfix hack to prevent rows themself from collapsing their height regardless of having floating children inside them.
 
 #### Columns
 
-Next, inside each
+Now we are ready to insert our columns into each row. Let's say that we wish to have three columns in the first row and two columns in the bottom row, one that takes up two-thirds the space and the other taking up one-third.
+
+```html
+<div class="wrapper">
+  <div class="row">
+    <div class="col-4">...</div>
+    <div class="col-4">...</div>
+    <div class="col-4">...</div>
+  </div>
+  <div class="row">
+    <div class="col-8">...</div>
+    <div class="col-4">...</div>
+  </div>
+</div>
+```
+
+I used the name `col-4` to indicate columns that take up one-third of our grid, and `col-8` for columns taking up two-thirds of our grid. There are many different grid recipes online you can use, this one follows the convention of giving our grid 12 units. Thus one-third of our twelve units is four, hence the name `col-4` and two-thirds of our twelve units is eight, hence the name `col-8`. Its less important what we name our column classes though and most important how they are sized, any margin, and floating.
+
+Let's set their CSS to float, we will give them (2%) two percent margin on their left side, except the first column which will have (0) zero margin. This is again a recipe for making space btween all the columns except on the beginning and ending of each row. 
+
+```css
+.wrapper {
+  width: 960px;
+  margin: 0 auto;
+}
+
+.row {
+  clear: both;
+}
+
+.row:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  height: 0;
+  line-height: 0;
+}
+
+[class*="col-"] {
+  float: left;
+  margin-left: 2%;
+}
+
+[class*="col-"]:first-child {
+  margin-left: 0;
+}
+```
+
+Here on line 
 
 ## Summary
 
