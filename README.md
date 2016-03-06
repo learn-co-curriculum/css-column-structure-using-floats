@@ -1,4 +1,4 @@
-# CSS Column Structure Using Floats
+# CSS Floating Columns
 
 ## Overview
 
@@ -12,7 +12,7 @@ In this lesson we will discuss creating column structure using floats. We will e
 4. A pattern for creating column structure using floats.
 5. Centering our layout with a wrapper (container).
 
-## Building With Floating Elements
+## Building With Floats
 
 <iframe width="640" height="360" src="https://www.youtube.com/embed/videoseries?list=PLj148bJp5wiywPPfLywS2m2neYodtzsER" frameborder="0" allowfullscreen></iframe>
 
