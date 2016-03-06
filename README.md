@@ -152,7 +152,7 @@ You might notice that the wood texture disappears when we set all of the childre
 }
 ```
 
-A quick google search for CSS Clearfix returns many results. The one above is one such recipe. What's all that about though? Well, lets discuss what happening here line by line.
+A quick google search for CSS Clearfix returns many results. The one above is one such recipe. What's all that about though? Well, let's discuss what is happening here line by line.
 
 
 
