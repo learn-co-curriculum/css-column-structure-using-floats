@@ -291,11 +291,135 @@ Let's set their CSS to float, we will give them (2%) two percent margin on their
 }
 ```
 
-Here on line 
+Here on line 19, we are using an attribute selector `[class*="col-"]` this selects any elements with the letter "col-" in their class name. In our case, this applies to both our columns `col-4` and `col-8`. neat huh, we just wrote a single selector that adresses all our column classes regardless of the number on the end of the class name. We wil make use of these numbers later on... Next, we applied code to float all our columns and give them 2% margin on their left side. On line 24, `[class*="col-"]:first-child` we select only columns that happen to be the first one on the left inside their parent `.row`. We did this using the `:first-child` on the selector. Then we set these first children columns to have zero margin on their left side. What this does is create space to the left of each column except the first. Now we have spacing between each column, yet the first column is right up against the edge of our row and thus aligned with the side of the wrapper as well.
+
+#### Math
+
+Now we need to size the coluns so they fit side by side. remember earlier we discussed how floating elements will fit other content side by side only when there is room. IF our math is off fo rthe widths of our columns one or more may not fit and be pushed below. We will start by figuring out the width of the columns taking up one-third. To factor our math as percent, let's take the of the measure total available space within the parent row, (100%) one hundred percent. Then we will subtract the margin, with three columns there will be margin inbetween the left and center column as well as between the center and right column. At two percent margin and with two places where we have margin thats (4%) four percent total margin.
+
+> 100 - 4 = 96
+
+That equals (96%) ninety six percent of space left over for the width of the three columns. Now we can divide that width by the three coluns
+
+> 96 / 3 = 32
+
+That equals a width of (32%) thirty two percent for each of the `col-4` columns. Now we just need to calculate the width of our `col-8`. Well, let's see. first lets take (100%) of space minus (2%) margin between the col-8 and col-4. That is 98 minus the col-4 width we already know is thrirty two.
+
+> 100 - 2 - 32 = 66
+
+This equals (66%) sixty six percent for the width of our col-8. The important thing here is we made sure our columns plus our margins are all adding up to 100 percent. This will insure that as floating elements they will all fit side by side within our rows. Let's apply these calculated widths into our CSS,
+
+```css
+.wrapper {
+  width: 960px;
+  margin: 0 auto;
+}
+
+.row {
+  clear: both;
+}
+
+.row:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  height: 0;
+  line-height: 0;
+}
+
+[class*="col-"] {
+  float: left;
+  margin-left: 2%;
+}
+
+[class*="col-"]:first-child {
+  margin-left: 0;
+}
+
+.col-4 { width: 32%; }
+.col-8 { width: 66%; }
+```
+
+Let's say we wanted the flexibility to set a column to any size within our twelve unit grid? Then we just have to calculate the math the same as we did before by subtracking margin from 100% and dividing up the remaining soace for each column width. here are those widths assuming a two percent margin,
+
+```css
+.col-1  { width: 6.5%;  }
+.col-2  { width: 15%;   }
+.col-3  { width: 23.5%; }
+.col-4  { width: 32%;   }
+.col-5  { width: 40.5%; }
+.col-6  { width: 49%;   }
+.col-7  { width: 57.5%; }
+.col-8  { width: 66%;   }
+.col-9  { width: 74.5%; }
+.col-10 { width: 83%;   }
+.col-11 { width: 91.5%; }
+.col-12 { width: 100%;  }
+```
+
+Pretty great! I could now link to this CSS in any web site and make use of the row, and column classes to achieve any float based column structure I wish. We have essentially created a reusable grid system.
+
+### Adding Padding and Border to Floating Elements
+
+What is we dared to now add some border or padding to our floating columns? Well as we discussed in a prior lesson. Different browsers use different box models. If we wish to include padding and borders within our columns without upsetting our math for their widths, we could set or `box-sizing` to `border-box`. Here is the full finished code below:
+
+```css
+* { box-sizing: border-box; }
+
+.wrapper {
+  width: 960px;
+  margin: 0 auto;
+}
+
+.row {
+  clear: both;
+}
+
+.row:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  height: 0;
+  line-height: 0;
+}
+
+[class*="col-"] {
+  float: left;
+  margin-left: 2%;
+}
+
+[class*="col-"]:first-child {
+  margin-left: 0;
+}
+
+.col-1  { width: 6.5%;  }
+.col-2  { width: 15%;   }
+.col-3  { width: 23.5%; }
+.col-4  { width: 32%;   }
+.col-5  { width: 40.5%; }
+.col-6  { width: 49%;   }
+.col-7  { width: 57.5%; }
+.col-8  { width: 66%;   }
+.col-9  { width: 74.5%; }
+.col-10 { width: 83%;   }
+.col-11 { width: 91.5%; }
+.col-12 { width: 100%;  }
+```
+
+### Pre-Built Grid Systems
+
+This last example is a simple grid system you can use, it is always good to understand floating from the ground up and be able to write your own code from scratch. It is worth mentioning here however, that there are many different prebuilt CSS grid systems that you can download and use. This does take a lot of the headache out of creating floating column structure, but still you will be glad you know how they work and how to build your own if neccesary!
 
 ## Summary
 
-- ...
+- Floating an element to the `float: left` or `float: right` will slide the element in that direction until it reaches the edge of its parent element.
+- Elements located below floating elements will try to pull up next to them if there is room for them to exist. ELements that won't fit will wrap down below to the next line.
+- If we do not wish an element to pull up next to a floating element we can give it the `clear: both` value.
+- When we float all the children within a parent it will collapse its height. To remedy this we can use a CSS Clearfix hack.
+- We can build column structure by floating elements and setting their width to fit side by side.
+- There are many recipes for grid systems using floating columns. You can build your own or download, link, and use the class names used in the pre-built grid file.
 
 ## Resources
 
@@ -306,3 +430,5 @@ Here on line
 - [MDN - CSS - Float](https://developer.mozilla.org/en-US/docs/Web/CSS/float)
 - [MDN - CSS - Clear](https://developer.mozilla.org/en-US/docs/Web/CSS/clear)
 - [CSS Tricks - Clearfix](https://css-tricks.com/snippets/css/clear-fix/)
+- [CSS - Light Grid Example](https://github.com/jongrover/css-light-grid/blob/master/css/light-grid.css)
+- [Site Point - Understanding Grid Systems](http://www.sitepoint.com/understanding-css-grid-systems/)
