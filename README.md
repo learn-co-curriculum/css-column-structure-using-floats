@@ -29,7 +29,6 @@ Having page layouts with content all to the left side of the screen; single colu
 
 In CSS one recipe for creating rows and columns of a grid is to use the `float` property. Let's explore how this simple mechanic works on its own, then later we will discuss how to use it to create a simple column structure. 
 
-
 Applying the float property to an element not only effects the behavior and display of that element, but also all of the elements below the floating element are also effected by it. This can be the cause for some unexpected behavior, but as long as we understand how float effects other elements around it, we can plan for and prevent unwanted reactions.
 
 Let's look at the `float` properties accepted values.
