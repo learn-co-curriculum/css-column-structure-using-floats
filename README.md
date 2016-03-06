@@ -110,7 +110,7 @@ Another often unintended result of floating is that you may be surprised to see 
 #### HTML
 
 ```html
-<div id="wood-texture">
+<div id="wood-texture"><!-- My height is collapsed! -->
   <div class="column">
     ...
   </div>
@@ -170,7 +170,7 @@ You might notice that the wood texture disappears when we set all of the childre
 
 A quick google search for CSS Clearfix returns many results. The one above is one such recipe. What's all that about though? Well, let's discuss what is happening here line by line.
 
-...
+
 
 ### Centering
 
