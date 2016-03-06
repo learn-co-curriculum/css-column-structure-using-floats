@@ -52,10 +52,14 @@ Setting float to `none` is the default behavior for all elements before the floa
 
 As mentioned previously whenever we float an element, elements located below that element will pull up next to it. This is often desirable behavior. For example if we float an image to the left and then the paragraph below it will pull up next to it.
 
+HTML
+
 ```html
 <img src="myimage.jpg" alt="my image">
 <p>Lore ipsum...</p>
 ```
+
+CSS
 
 ```css
 img {
@@ -65,11 +69,15 @@ img {
 
 In this case the paragraph wrapping up around the image may be exactly what we were after. However in some cases an element may pull up next to a floating element when we do not wish this to be the case. For example lets say we had a footer below the paragraph and although we are happy with the paragraph wrapping up around our image, we do not want the footer to go up there. Instead we wish the footer to maintain its position down below. We can use the `clear` property to set the footer to stay below the height of anything floating above it.
 
+HTML
+
 ```html
 <img src="myimage.jpg" alt="my image">
 <p>Lore ipsum...</p>
 <footer>...</footer>
 ```
+
+CSS
 
 ```css
 img {
@@ -99,6 +107,8 @@ Clear both tells the element to clear past the height of anything floating to th
 
 Another often unintended result of floating is that you may be surprised to see a parent element will collapse its height if all of the children inside of it are floating. Let's say for example that you had a box with wood texture and inside of it you had three floating elements. 
 
+HTML
+
 ```html
 <div id="wood-texture">
   <div class="column">
@@ -109,6 +119,8 @@ Another often unintended result of floating is that you may be surprised to see 
   </div>
 </div>
 ```
+
+CSS
 
 ```css
 #wood {
@@ -122,6 +134,8 @@ Another often unintended result of floating is that you may be surprised to see 
 
 You might notice that the wood texture disappears when we set all of the children elements to float. This is because floating elements do not provide their parent with a reference of their height. It is as if they are plucked from the normal document flow and although are inside their parent they seem to not register as beig there. fortunately this can be fixed by using a CSS hack that deveopers have invented. It is called a clearfix.
 
+HTML
+
 ```html
 <div id="wood-texture" class="clearfix">
   <div class="column">
@@ -132,6 +146,8 @@ You might notice that the wood texture disappears when we set all of the childre
   </div>
 </div>
 ```
+
+CSS
 
 ```css
 #wood {
@@ -154,7 +170,7 @@ You might notice that the wood texture disappears when we set all of the childre
 
 A quick google search for CSS Clearfix returns many results. The one above is one such recipe. What's all that about though? Well, let's discuss what is happening here line by line.
 
-
+...
 
 ### Centering
 
