@@ -50,6 +50,7 @@ Setting float to `none` is the default behavior for all elements before the floa
 
 ### Clear
 
+...
 
 ### Clearfix
 
