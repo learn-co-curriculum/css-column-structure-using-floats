@@ -176,13 +176,34 @@ On line one of the HTML we added a class of clearfix to the collapsing parent el
 
 When all is said and done we can now apply this class of `clearfix` to any element that is collapsing do to having floating children within it. See the code example on clearfixes provided in the resource links at the bottom of this lesson.
 
-### Centering
-
-...
-
 ### Column Structure
 
-...
+There are many recipes for creating column structure, but we will focus on creating a liquid column structure using percents and utilizing floats. We start out by creating a wrapper class that will wrap all elements in our layout and center them.
+
+#### HTML
+
+```html
+<div class="wrapper">
+  ...
+</div>
+```
+
+Then next we can tell that wrapper to have a fixed width, and to center using margin on each side.
+
+#### CSS
+
+```css
+.wrapper {
+  width: 960px;
+  margin: 0 auto;
+}
+```
+
+
+
+#### Centering
+
+In order to 
 
 ## Summary
 
