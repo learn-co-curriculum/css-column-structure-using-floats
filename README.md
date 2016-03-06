@@ -178,9 +178,11 @@ When all is said and done we can now apply this class of `clearfix` to any eleme
 
 ### Column Structure
 
-There are many recipes for creating column structure, but we will focus on creating a liquid column structure using percents and utilizing floats. We start out by creating a wrapper class that will wrap all elements in our layout and center them.
+There are many recipes for creating column structure, but we will focus on creating a liquid column structure using percents and utilizing floats. 
 
-#### HTML
+#### Centering
+
+We start out by creating a wrapper class that will wrap all elements in our layout and center them.
 
 ```html
 <div class="wrapper">
@@ -190,8 +192,6 @@ There are many recipes for creating column structure, but we will focus on creat
 
 Then next we can tell that wrapper to have a fixed width, and to center using margin on each side.
 
-#### CSS
-
 ```css
 .wrapper {
   width: 960px;
@@ -199,11 +199,50 @@ Then next we can tell that wrapper to have a fixed width, and to center using ma
 }
 ```
 
+To center, we are setting the wrapper to `margin: 0 auto;`. The first number sets zero pixels for the top and bottom of the wrapper and auto (automatic) ammount for the left and right sides of the element. By giving the element automatic amount of space on the left and right it will center the wrapper within the body. Note that in order to see the auto margin the element must have a set width.
 
+#### Rows
 
-#### Centering
+Next we will cerate an element that will act as a row always stacking vertically and separating the space of one row to another. Since the columns within our rows will be floating we want to tell the rows to always clear past each other to maintain their row like behavior.
 
-In order to 
+```html
+<div class="wrapper">
+  <div class="row">
+    ...
+  </div>
+  <div class="row">
+    ...
+  </div>
+</div>
+```
+
+Here we created two rows by giving each div a class of `row`. Next in the CSS we need to tell rows to clear each other and prevent them from collapsing their height using our clearfix code.
+
+```css
+.wrapper {
+  width: 960px;
+  margin: 0 auto;
+}
+
+.row {
+  clear: both;
+}
+
+.row:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  height: 0;
+  line-height: 0;
+}
+```
+
+Here on line 
+
+#### Columns
+
+Next, inside each
 
 ## Summary
 
