@@ -24,7 +24,6 @@ In this lesson ...
 
 ## Resources
 
-## Resources
-
 - [Presentation Slides](https://docs.google.com/presentation/d/1UTUWDczUiDZ6byuhyHv0L3zJXQjdlnZheZXhRVLOL3Q/edit?usp=sharing)
-- [#](#)
+- [Simple Float Left - Code Example](http://jsfiddle.net/flatiron_school/YXBnC/3/)
+- [Column Structure Using Floats - Code Example](http://jsfiddle.net/flatiron_school/VGue9/)
