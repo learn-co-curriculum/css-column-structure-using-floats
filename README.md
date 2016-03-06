@@ -48,6 +48,8 @@ If no width is set on a floating element, it will start to be as wide as the con
 
 Setting float to `none` is the default behavior for all elements before the float peoperty is set. You can also use this propertly to essentially turn off floating on elements that might have already been told to float. This is a common strategy in responsive media queries which we will discuss in a future lesson.
 
+See the code example on floating provided in the resource links at the bottom of this lesson.
+
 ### Clear
 
 As mentioned previously whenever we float an element, elements located below that element will pull up next to it. This is often desirable behavior. For example if we float an image to the left and then the paragraph below it will pull up next to it.
@@ -101,7 +103,7 @@ Clear right tells the element to clear past the height of anything floating to t
 
 `clear: both;`
 
-Clear both tells the element to clear past the height of anything floating to the left or the right.
+Clear both tells the element to clear past the height of anything floating to the left or the right. See the code example on clearing provided in the resource links at the bottom of this lesson.
 
 ### Clearfix
 
@@ -170,7 +172,9 @@ You might notice that the wood texture disappears when we set all of the childre
 
 A quick google search for CSS Clearfix returns many results. The one above is one such recipe. What's all that about though? Well, let's discuss what is happening here line by line.
 
+On line one of the HTML we added a class of clearfix to the collapsing parent element. Then in the CSS on line 9, we create the selector for that class `clearfix:after`. The `:after` part takes us to after all the children `.column` inside of `#wood`. Then after all these children it will create some `content:` on line 10. Here we insert the text content `"."` after all the column children. Weird huh? Keep with me it will strat to make more sense as we go further. On line 11 we tell that content to `display: block` which allows it to take up all the horizontal space, then on line 12 we tell it to `clear: both` allowing the content to clear past the heihght of all the floating columns above it. This is what gives the parent `#wood` a reference for how tall to be. Great, but we do not want to see a little `.` period symbol below all our floating columns. So we set it to `visibility: hidden` on line 13, and then `height: 0` and `line-height: 0` on lines 14 and 15.
 
+When all is said an done we can now aply this class of `clearfix` to any element that is collapsing do to having floating children within it. See the code example on clearfixes provided in the resource links at the bottom of this lesson.
 
 ### Centering
 
@@ -188,6 +192,7 @@ A quick google search for CSS Clearfix returns many results. The one above is on
 
 - [Presentation Slides](https://docs.google.com/presentation/d/1UTUWDczUiDZ6byuhyHv0L3zJXQjdlnZheZXhRVLOL3Q/edit?usp=sharing)
 - [Simple Float Left - Code Example](http://jsfiddle.net/flatiron_school/YXBnC/3/)
+- [Clearfix - Code Example](http://jsfiddle.net/flatiron_school/eQRJM)
 - [Column Structure Using Floats - Code Example](http://jsfiddle.net/flatiron_school/VGue9/)
 - [MDN - CSS - Float](https://developer.mozilla.org/en-US/docs/Web/CSS/float)
 - [MDN - CSS - Clear](https://developer.mozilla.org/en-US/docs/Web/CSS/clear)
