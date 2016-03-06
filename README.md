@@ -174,7 +174,7 @@ A quick google search for CSS Clearfix returns many results. The one above is on
 
 On line one of the HTML we added a class of clearfix to the collapsing parent element. Then in the CSS on line 9, we create the selector for that class `clearfix:after`. The `:after` part takes us to after all the children `.column` inside of `#wood`. Then after all these children it will create some `content:` on line 10. Here we insert the text content `"."` after all the column children. Weird huh? Keep with me it will strat to make more sense as we go further. On line 11 we tell that content to `display: block` which allows it to take up all the horizontal space, then on line 12 we tell it to `clear: both` allowing the content to clear past the heihght of all the floating columns above it. This is what gives the parent `#wood` a reference for how tall to be. Great, but we do not want to see a little `.` period symbol below all our floating columns. So we set it to `visibility: hidden` on line 13, and then `height: 0` and `line-height: 0` on lines 14 and 15.
 
-When all is said an done we can now apply this class of `clearfix` to any element that is collapsing do to having floating children within it. See the code example on clearfixes provided in the resource links at the bottom of this lesson.
+When all is said and done we can now apply this class of `clearfix` to any element that is collapsing do to having floating children within it. See the code example on clearfixes provided in the resource links at the bottom of this lesson.
 
 ### Centering
 
