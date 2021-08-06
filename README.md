@@ -4,6 +4,8 @@
 
 In this lesson we will discuss creating column structure using floats. We will explore the CSS float property, clear property, and layout techniques for creating columns and centering elements using margins. 
 
+Make sure to check out the code examples in the Resources section to see how these properties work!
+
 ## Objectives
 
 1. How to float elements.
@@ -13,10 +15,6 @@ In this lesson we will discuss creating column structure using floats. We will e
 5. Centering our layout with a wrapper (container).
 
 ## Building With Floats
-
-<iframe width="640" height="360" src="https://www.youtube.com/embed/videoseries?list=PLj148bJp5wiywPPfLywS2m2neYodtzsER" frameborder="0" allowfullscreen></iframe>
-
-*Note: Slides for this lecture video are provided in the resources at the bottom of this lesson.*
 
 ### The Grid
 
@@ -422,7 +420,6 @@ This last example is a simple grid system you can use, it is always good to unde
 
 ## Resources
 
-- [Presentation Slides](https://docs.google.com/presentation/d/1UTUWDczUiDZ6byuhyHv0L3zJXQjdlnZheZXhRVLOL3Q/edit?usp=sharing)
 - [Simple Float Left - Code Example](http://jsfiddle.net/flatiron_school/YXBnC/3/)
 - [Clearfix - Code Example](http://jsfiddle.net/flatiron_school/eQRJM)
 - [Column Structure Using Floats - Code Example](http://jsfiddle.net/flatiron_school/VGue9/)
@@ -431,5 +428,3 @@ This last example is a simple grid system you can use, it is always good to unde
 - [CSS Tricks - Clearfix](https://css-tricks.com/snippets/css/clear-fix/)
 - [CSS - Light Grid Example](https://github.com/jongrover/css-light-grid/blob/master/css/light-grid.css)
 - [Site Point - Understanding Grid Systems](http://www.sitepoint.com/understanding-css-grid-systems/)
-
-<p class='util--hide'>View <a href='https://learn.co/lessons/css-column-structure-using-floats'>Floating Columns</a> on Learn.co and start learning to code for free.</p>
