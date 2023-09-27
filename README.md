@@ -2,11 +2,11 @@
 
 ## Learning Goals
 
-- How to float elements
-- Float behavior
-- Troubleshooting float issues
-- A pattern for creating column structure using floats
-- Centering our layout with a wrapper (container)
+- Identify how to float elements
+- Identify float behavior
+- Troubleshoot float issues
+- Determine a pattern for creating column structure using floats
+- Center our layout with a wrapper (container)
 
 ## Introduction
 
