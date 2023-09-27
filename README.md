@@ -1,55 +1,85 @@
 # CSS Floating Columns
 
-## Overview
+## Learning Goals
 
-In this lesson we will discuss creating column structure using floats. We will explore the CSS float property, clear property, and layout techniques for creating columns and centering elements using margins. 
+- How to float elements
+- Float behavior
+- Troubleshooting float issues
+- A pattern for creating column structure using floats
+- Centering our layout with a wrapper (container)
 
-Make sure to check out the code examples in the Resources section to see how these properties work!
+## Introduction
 
-## Objectives
+In this lesson we will discuss creating column structure using floats. We will
+explore the CSS float property, clear property, and layout techniques for
+creating columns and centering elements using margins.
 
-1. How to float elements.
-2. Float behavior.
-3. Troubleshooting float issues.
-4. A pattern for creating column structure using floats.
-5. Centering our layout with a wrapper (container).
+Make sure to check out the code examples in the Resources section to see how
+these properties work!
 
 ## Building With Floats
 
 ### The Grid
 
-Having page layouts with content all to the left side of the screen; single column isn't very adventurous is it? It would be nice to be able to position content into a grid. Then we can organize our information, and create visual relationships between two pieces of content. We can use a grid to visually lead the viewer through our content giving order to our narrative. Although a grid doesn't solve all our problems, it does help us build better site layouts.
+Having page layouts with content all to the left side of the screen; single
+column isn't very adventurous is it? It would be nice to be able to position
+content into a grid. Then we can organize our information, and create visual
+relationships between two pieces of content. We can use a grid to visually lead
+the viewer through our content giving order to our narrative. Although a grid
+doesn't solve all our problems, it does help us build better site layouts.
 
-> “The grid system is an aid, not a guarantee. It permits a number of possible uses and each designer can look for a solution appropriate to his personal style. But one must learn how to use the grid; it is an art that requires practice.”
-> —Josef Muller-Brockmann
+> “The grid system is an aid, not a guarantee. It permits a number of possible
+> uses and each designer can look for a solution appropriate to his personal
+> style. But one must learn how to use the grid; it is an art that requires
+> practice.” —Josef Muller-Brockmann
 
 ### Float
 
-In CSS one recipe for creating rows and columns of a grid is to use the `float` property. Let's explore how this simple mechanic works on its own, then later we will discuss how to use it to create a simple column structure. 
+In CSS one recipe for creating rows and columns of a grid is to use the `float`
+property. Let's explore how this simple mechanic works on its own, then later we
+will discuss how to use it to create a simple column structure. 
 
-Applying the float property to an element not only affects the behavior and display of that element, but all of the elements below the floating element are also affected by it. This can be the cause for some unexpected behavior, but as long as we understand how float affects other elements around it, we can plan for and prevent unwanted reactions.
+Applying the float property to an element not only affects the behavior and
+display of that element, but all of the elements below the floating element are
+also affected by it. This can be the cause for some unexpected behavior, but as
+long as we understand how float affects other elements around it, we can plan
+for and prevent unwanted reactions.
 
 Let's look at the `float` property's accepted values.
 
 `float: left;`
 
-Floating an element to the `left` will cause that element to slide as far to the left within its parent as it can.
+Floating an element to the `left` will cause that element to slide as far to the
+left within its parent as it can.
 
 `float: right;`
 
-Floating an element to the `right` will cause that element to slide as far to the right within its parent as it can.
+Floating an element to the `right` will cause that element to slide as far to
+the right within its parent as it can.
 
-If no width is set on a floating element, it will start to be as wide as the content within it, although we can force the width of a floating element by using its width property. Additonally all elements written in the code after that floating element will try to pull up next to it if there is room for them to exist.
+If no width is set on a floating element, it will start to be as wide as the
+content within it, although we can force the width of a floating element by
+using its width property. Additionally all elements written in the code after
+that floating element will try to pull up next to it if there is room for them
+to exist.
 
 `float: none;`
 
-Setting float to `none` is the default behavior for all elements before the float property is set. You can also use this property to essentially turn off floating on elements that might have already been told to float. This is a common strategy in responsive media queries which we will discuss in a future lesson.
+Setting float to `none` is the default behavior for all elements before the
+float property is set. You can also use this property to essentially turn off
+floating on elements that might have already been told to float. This is a
+common strategy in responsive media queries which we will discuss in a future
+lesson.
 
-See the code example on floating provided in the resource links at the bottom of this lesson.
+See the code example on floating provided in the resource links at the bottom of
+this lesson.
 
 ### Clear
 
-As mentioned previously whenever we float an element, elements located below that element will pull up next to it. This is often desirable behavior. For example if we float an image to the left and then the paragraph below it will pull up next to it.
+As mentioned previously whenever we float an element, elements located below
+that element will pull up next to it. This is often desirable behavior. For
+example if we float an image to the left and then the paragraph below it will
+pull up next to it.
 
 #### HTML
 
@@ -66,7 +96,13 @@ img {
 }
 ```
 
-In this case the paragraph wrapping up around the image may be exactly what we were after. However in some cases an element may pull up next to a floating element when we do not wish this to be the case. For example lets say we had a footer below the paragraph and although we are happy with the paragraph wrapping up around our image, we do not want the footer to go up there. Instead we wish the footer to maintain its position down below. We can use the `clear` property to set the footer to stay below the height of anything floating above it.
+In this case the paragraph wrapping up around the image may be exactly what we
+were after. However in some cases an element may pull up next to a floating
+element when we do not wish this to be the case. For example lets say we had a
+footer below the paragraph and although we are happy with the paragraph wrapping
+up around our image, we do not want the footer to go up there. Instead we wish
+the footer to maintain its position down below. We can use the `clear` property
+to set the footer to stay below the height of anything floating above it.
 
 #### HTML
 
@@ -92,19 +128,26 @@ We can set the `clear` property with the following values:
 
 `clear: left;`
 
-Clear `left` tells the element to clear past the height of anything floating to the left.
+Clear `left` tells the element to clear past the height of anything floating to
+the left.
 
 `clear: right;`
 
-Clear `right` tells the element to clear past the height of anything floating to the right.
+Clear `right` tells the element to clear past the height of anything floating to
+the right.
 
 `clear: both;`
 
-Clear `both` tells the element to clear past the height of anything floating to the left or the right. See the code example on clearing provided in the resource links at the bottom of this lesson.
+Clear `both` tells the element to clear past the height of anything floating to
+the left or the right. See the code example on clearing provided in the resource
+links at the bottom of this lesson.
 
 ### Clearfix
 
-Another often unintended result of floating is that you may be surprised to see a parent element will collapse its height if all of the children inside of it are floating. Let's say for example that you had a box with wood texture and inside of it you had three floating elements. 
+Another often unintended result of floating is that you may be surprised to see
+a parent element will collapse its height if all of the children inside of it
+are floating. Let's say for example that you had a box with wood texture and
+inside of it you had three floating elements. 
 
 #### HTML
 
@@ -131,7 +174,12 @@ Another often unintended result of floating is that you may be surprised to see 
 }
 ```
 
-You might notice that the wood texture disappears when we set all of the children elements to float. This is because floating elements do not provide their parent with a reference of their height. It is as if they are plucked from the normal document flow and although are inside their parent they seem to not register as being there. Fortunately, this can be fixed by using a CSS hack that developers have invented. It is called a clearfix.
+You might notice that the wood texture disappears when we set all of the
+children elements to float. This is because floating elements do not provide
+their parent with a reference of their height. It is as if they are plucked from
+the normal document flow and although are inside their parent they seem to not
+register as being there. Fortunately, this can be fixed by using a CSS hack that
+developers have invented. It is called a clearfix.
 
 #### HTML
 
@@ -167,19 +215,38 @@ You might notice that the wood texture disappears when we set all of the childre
 }
 ```
 
-A quick google search for CSS Clearfix returns many results. The one above is one such recipe. What's all that about though? Well, let's discuss what is happening here line by line.
+A quick google search for CSS Clearfix returns many results. The one above is
+one such recipe. What's all that about though? Well, let's discuss what is
+happening here line by line.
 
-On line one of the HTML we added a class of clearfix to the collapsing parent element. Then in the CSS on line 9, we create the selector for that class `clearfix:after`. The `:after` part takes us to after all the children `.column` inside of `#wood`. Then after all these children it will create some `content:` on line 10. Here we insert the text content `"."` after all the column children. Weird huh? Keep with me it will strat to make more sense as we go further. On line 11 we tell that content to `display: block` which allows it to take up all the horizontal space, then on line 12 we tell it to `clear: both` allowing the content to clear past the heihght of all the floating columns above it. This is what gives the parent `#wood` a reference for how tall to be. Great, but we do not want to see a little `.` period symbol below all our floating columns. So we set it to `visibility: hidden` on line 13, and then `height: 0` and `line-height: 0` on lines 14 and 15.
+On line one of the HTML we added a class of clearfix to the collapsing parent
+element. Then in the CSS on line 9, we create the selector for that class
+`clearfix:after`. The `:after` part takes us to after all the children `.column`
+inside of `#wood`. Then after all these children it will create some `content:`
+on line 10. Here we insert the text content `"."` after all the column children.
+Weird huh? Keep with me it will start to make more sense as we go further. On
+line 11 we tell that content to `display: block` which allows it to take up all
+the horizontal space, then on line 12 we tell it to `clear: both` allowing the
+content to clear past the height of all the floating columns above it. This is
+what gives the parent `#wood` a reference for how tall to be. Great, but we do
+not want to see a little `.` period symbol below all our floating columns. So we
+set it to `visibility: hidden` on line 13, and then `height: 0` and
+`line-height: 0` on lines 14 and 15.
 
-When all is said and done we can now apply this class of `clearfix` to any element that is collapsing due to having floating children within it. See the code example on clearfixes provided in the resource links at the bottom of this lesson.
+When all is said and done we can now apply this class of `clearfix` to any
+element that is collapsing due to having floating children within it. See the
+code example on clearfixes provided in the resource links at the bottom of this
+lesson.
 
 ### Column Structure
 
-There are many recipes for creating column structure, but we will focus on creating a liquid column structure using percents and floats. 
+There are many recipes for creating column structure, but we will focus on
+creating a liquid column structure using percents and floats. 
 
 #### Centering
 
-We start out by creating a wrapper class that will wrap all elements in our layout and center them.
+We start out by creating a wrapper class that will wrap all elements in our
+layout and center them.
 
 ```html
 <div class="wrapper">
@@ -187,7 +254,8 @@ We start out by creating a wrapper class that will wrap all elements in our layo
 </div>
 ```
 
-Next we can tell that wrapper to have a fixed width, and to center using margin on each side.
+Next we can tell that wrapper to have a fixed width, and to center using margin
+on each side.
 
 ```css
 .wrapper {
@@ -196,11 +264,19 @@ Next we can tell that wrapper to have a fixed width, and to center using margin 
 }
 ```
 
-To center, we are setting the wrapper to `margin: 0 auto;`. The first number sets zero pixels for the top and bottom of the wrapper and auto (automatic) amount for the left and right sides of the element. By giving the element automatic amount of space on the left and right it will center the wrapper within the body. Note that in order to see the auto margin the element must have a set width.
+To center, we are setting the wrapper to `margin: 0 auto;`. The first number
+sets zero pixels for the top and bottom of the wrapper and auto (automatic)
+amount for the left and right sides of the element. By giving the element
+automatic amount of space on the left and right it will center the wrapper
+within the body. Note that in order to see the auto margin the element must have
+a set width.
 
 #### Rows
 
-Next we will create an element that will act as a row always stacking vertically and separating the space of one row to another. Since the columns within our rows will be floating, we want to tell the rows to always clear past each other to maintain their row like behavior.
+Next we will create an element that will act as a row always stacking vertically
+and separating the space of one row to another. Since the columns within our
+rows will be floating, we want to tell the rows to always clear past each other
+to maintain their row like behavior.
 
 ```html
 <div class="wrapper">
@@ -213,7 +289,9 @@ Next we will create an element that will act as a row always stacking vertically
 </div>
 ```
 
-Here we created two rows by giving each div a class of `row`. Next in the CSS we need to tell rows to clear each other and prevent them from collapsing their height using our clearfix code.
+Here we created two rows by giving each div a class of `row`. Next in the CSS we
+need to tell rows to clear each other and prevent them from collapsing their
+height using our clearfix code.
 
 ```css
 .wrapper {
@@ -235,11 +313,16 @@ Here we created two rows by giving each div a class of `row`. Next in the CSS we
 }
 ```
 
-Here on line 7 we set rows to `clear:both` so they will display vertically regardless of any floating elements above them. On line 10 we use our clearfix hack to prevent rows from collapsing their height regardless of having floating children inside them.
+Here on line 7 we set rows to `clear:both` so they will display vertically
+regardless of any floating elements above them. On line 10 we use our clearfix
+hack to prevent rows from collapsing their height regardless of having floating
+children inside them.
 
 #### Columns
 
-Now we are ready to insert our columns into each row. Let's say that we wish to have three columns in the first row and two columns in the bottom row, one that takes up two-thirds the space and the other taking up one-third.
+Now we are ready to insert our columns into each row. Let's say that we wish to
+have three columns in the first row and two columns in the bottom row, one that
+takes up two-thirds the space and the other taking up one-third.
 
 ```html
 <div class="wrapper">
@@ -255,9 +338,18 @@ Now we are ready to insert our columns into each row. Let's say that we wish to 
 </div>
 ```
 
-I used the name `col-4` to indicate columns that take up one-third of our grid, and `col-8` for columns taking up two-thirds of our grid. There are many different grid recipes online you can use, this one follows the convention of giving our grid 12 units. Thus one-third of our twelve units is four, hence the name `col-4` and two-thirds of our twelve units is eight, hence the name `col-8`. It's less important what we name our column classes though and most important how they are sized, any margin, and floating.
+I used the name `col-4` to indicate columns that take up one-third of our grid,
+and `col-8` for columns taking up two-thirds of our grid. There are many
+different grid recipes online you can use, this one follows the convention of
+giving our grid 12 units. Thus one-third of our twelve units is four, hence the
+name `col-4` and two-thirds of our twelve units is eight, hence the name
+`col-8`. It's less important what we name our column classes though and most
+important how they are sized, any margin, and floating.
 
-Let's set their CSS to float, we will give them (2%) two percent margin on their left side, except the first column which will have (0) zero margin. This is again a recipe for making space between all the columns except on the beginning and ending of each row. 
+Let's set their CSS to float, we will give them (2%) two percent margin on their
+left side, except the first column which will have (0) zero margin. This is
+again a recipe for making space between all the columns except on the beginning
+and ending of each row. 
 
 ```css
 .wrapper {
@@ -288,23 +380,51 @@ Let's set their CSS to float, we will give them (2%) two percent margin on their
 }
 ```
 
-Here on line 19, we are using an attribute selector `[class*="col-"]`. This selects any elements with the letter "col-" in their class name. In our case, this applies to both our columns `col-4` and `col-8`. Neat huh? We just wrote a single selector that adresses all our column classes regardless of the number on the end of the class name. We will make use of these numbers later on... Next, we applied code to float all our columns and give them 2% margin on their left side. On line 24, `[class*="col-"]:first-child` we select only columns that happen to be the first one on the left inside their parent `.row`. We did this using the `:first-child` on the selector. Then we set these first children columns to have zero margin on their left side. What this does is create space to the left of each column except the first. Now we have spacing between each column, yet the first column is right up against the edge of our row and thus aligned with the side of the wrapper as well.
+Here on line 19, we are using an attribute selector `[class*="col-"]`. This
+selects any elements with the letter "col-" in their class name. In our case,
+this applies to both our columns `col-4` and `col-8`. Neat huh? We just wrote a
+single selector that adresses all our column classes regardless of the number on
+the end of the class name. We will make use of these numbers later on... Next,
+we applied code to float all our columns and give them 2% margin on their left
+side. On line 24, `[class*="col-"]:first-child` we select only columns that
+happen to be the first one on the left inside their parent `.row`. We did this
+using the `:first-child` on the selector. Then we set these first children
+columns to have zero margin on their left side. What this does is create space
+to the left of each column except the first. Now we have spacing between each
+column, yet the first column is right up against the edge of our row and thus
+aligned with the side of the wrapper as well.
 
 #### Math
 
-Now we need to size the columns so they fit side by side. Remember, floating elements will fit other content side-by-side only when there is room. If our math is off and the widths of our columns are wrong, one or more may not fit and will be pushed below. We will start by figuring out the width of the columns taking up one-third. To factor our math as a percent, let's start with the total measure of available space within the parent row, (100%) one hundred percent. Then we will subtract the margin, with three columns there will be margin in between the left and center column as well as between the center and right column. At two percent margin and with two places where we have margin, that's (4%) four percent total margin.
+Now we need to size the columns so they fit side by side. Remember, floating
+elements will fit other content side-by-side only when there is room. If our
+math is off and the widths of our columns are wrong, one or more may not fit and
+will be pushed below. We will start by figuring out the width of the columns
+taking up one-third. To factor our math as a percent, let's start with the total
+measure of available space within the parent row, (100%) one hundred percent.
+Then we will subtract the margin, with three columns there will be margin in
+between the left and center column as well as between the center and right
+column. At two percent margin and with two places where we have margin, that's
+(4%) four percent total margin.
 
 > 100 - 4 = 96
 
-That equals (96%) ninety six percent of space left over for the width of the three columns. Now we can divide that width by the three columns
+That equals (96%) ninety six percent of space left over for the width of the
+three columns. Now we can divide that width by the three columns
 
 > 96 / 3 = 32
 
-That equals a width of (32%) thirty two percent for each of the `col-4` columns. Now we just need to calculate the width of our `col-8`. Well, let's see. First, lets take (100%) of space minus (2%) margin between the col-8 and col-4. That is 98 minus the col-4 width we already know is thirty two.
+That equals a width of (32%) thirty two percent for each of the `col-4` columns.
+Now we just need to calculate the width of our `col-8`. Well, let's see. First,
+lets take (100%) of space minus (2%) margin between the col-8 and col-4. That is
+98 minus the col-4 width we already know is thirty two.
 
 > 100 - 2 - 32 = 66
 
-This equals (66%) sixty six percent for the width of our col-8. The important thing here is we made sure our columns plus our margins all add up to 100 percent. This ensures that floating elements will all fit side-by-side within our rows. Let's apply these calculated widths into our CSS,
+This equals (66%) sixty six percent for the width of our col-8. The important
+thing here is we made sure our columns plus our margins all add up to 100
+percent. This ensures that floating elements will all fit side-by-side within
+our rows. Let's apply these calculated widths into our CSS,
 
 ```css
 .wrapper {
@@ -338,7 +458,10 @@ This equals (66%) sixty six percent for the width of our col-8. The important th
 .col-8 { width: 66%; }
 ```
 
-Let's say we wanted the flexibility to set a column to any size within our twelve unit grid? Then we just have to calculate the math the same as we did before by subtracting margin from 100% and dividing up the remaining space for each column width. Here are those widths assuming a two percent margin,
+Let's say we wanted the flexibility to set a column to any size within our
+twelve unit grid? Then we just have to calculate the math the same as we did
+before by subtracting margin from 100% and dividing up the remaining space for
+each column width. Here are those widths assuming a two percent margin,
 
 ```css
 .col-1  { width: 6.5%;  }
@@ -355,11 +478,17 @@ Let's say we wanted the flexibility to set a column to any size within our twelv
 .col-12 { width: 100%;  }
 ```
 
-Pretty great! I could now link to this CSS in any web site and make use of the row, and column classes to achieve any float based column structure I wish. We have essentially created a reusable grid system.
+Pretty great! I could now link to this CSS in any web site and make use of the
+row, and column classes to achieve any float based column structure I wish. We
+have essentially created a reusable grid system.
 
 ### Adding Padding and Border to Floating Elements
 
-What if we dared to add a border or some padding to our floating columns? Well, as we discussed in a prior lesson, different browsers use different box models. If we wish to include padding and borders within our columns without upsetting our math for their widths, we could set or `box-sizing` to `border-box`. Here is the full finished code below:
+What if we dared to add a border or some padding to our floating columns? Well,
+as we discussed in a prior lesson, different browsers use different box models.
+If we wish to include padding and borders within our columns without upsetting
+our math for their widths, we could set or `box-sizing` to `border-box`. Here is
+the full finished code below:
 
 ```css
 * { box-sizing: border-box; }
@@ -407,16 +536,32 @@ What if we dared to add a border or some padding to our floating columns? Well, 
 
 ### Pre-Built Grid Systems
 
-This last example is a simple grid system you can use, it is always good to understand floating from the ground up and be able to write your own code from scratch. It is worth mentioning here however, that there are many different pre-built CSS grid systems that you can download and use. This does take a lot of the headache out of creating floating column structure, but still you will be glad you know how they work and how to build your own if neccesary!
+This last example is a simple grid system you can use, it is always good to
+understand floating from the ground up and be able to write your own code from
+scratch. It is worth mentioning here however, that there are many different
+pre-built CSS grid systems that you can download and use. This does take a lot
+of the headache out of creating floating column structure, but still you will be
+glad you know how they work and how to build your own if necessary!
 
-## Summary
+## Conclusion
 
-- Floating an element to the `float: left` or `float: right` will slide the element in that direction until it reaches the edge of its parent element.
-- Elements located below floating elements will try to pull up next to them if there is room for them to exist. ELements that won't fit will wrap down below to the next line.
-- If we do not wish an element to pull up next to a floating element we can give it the `clear: both` value.
-- When we float all the children within a parent it will collapse its height. To remedy this we can use a CSS Clearfix hack.
-- We can build column structure by floating elements and setting their width to fit side by side.
-- There are many recipes for grid systems using floating columns. You can build your own or download, link, and use the class names used in the pre-built grid file.
+In this lesson, you have learned how to create column structure using floats. To
+summarize:
+
+- Floating an element to the `float: left` or `float: right` will slide the
+  element in that direction until it reaches the edge of its parent element.
+- Elements located below floating elements will try to pull up next to them if
+  there is room for them to exist. ELements that won't fit will wrap down below
+  to the next line.
+- If we do not wish an element to pull up next to a floating element we can give
+  it the `clear: both` value.
+- When we float all the children within a parent it will collapse its height. To
+  remedy this we can use a CSS Clearfix hack.
+- We can build column structure by floating elements and setting their width to
+  fit side by side.
+- There are many recipes for grid systems using floating columns. You can build
+  your own or download, link, and use the class names used in the pre-built grid
+  file.
 
 ## Resources
 
