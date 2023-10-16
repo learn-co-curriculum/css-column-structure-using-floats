@@ -37,7 +37,7 @@ doesn't solve all our problems, it does help us build better site layouts.
 
 In CSS one recipe for creating rows and columns of a grid is to use the `float`
 property. Let's explore how this simple mechanic works on its own, then later we
-will discuss how to use it to create a simple column structure. 
+will discuss how to use it to create a simple column structure.
 
 Applying the float property to an element not only affects the behavior and
 display of that element, but all of the elements below the floating element are
@@ -84,7 +84,7 @@ pull up next to it.
 #### HTML
 
 ```html
-<img src="myimage.jpg" alt="my image">
+<img src="myimage.jpg" alt="my image" />
 <p>Lore ipsum...</p>
 ```
 
@@ -92,7 +92,7 @@ pull up next to it.
 
 ```css
 img {
-    float: left;
+  float: left;
 }
 ```
 
@@ -107,7 +107,7 @@ to set the footer to stay below the height of anything floating above it.
 #### HTML
 
 ```html
-<img src="myimage.jpg" alt="my image">
+<img src="myimage.jpg" alt="my image" />
 <p>Lore ipsum...</p>
 <footer>...</footer>
 ```
@@ -116,11 +116,11 @@ to set the footer to stay below the height of anything floating above it.
 
 ```css
 img {
-    float: left;
+  float: left;
 }
 
 footer {
-    clear: both;
+  clear: both;
 }
 ```
 
@@ -147,18 +147,15 @@ links at the bottom of this lesson.
 Another often unintended result of floating is that you may be surprised to see
 a parent element will collapse its height if all of the children inside of it
 are floating. Let's say for example that you had a box with wood texture and
-inside of it you had three floating elements. 
+inside of it you had three floating elements.
 
 #### HTML
 
 ```html
-<div id="wood-texture"><!-- My height is collapsed! -->
-  <div class="column">
-    ...
-  </div>
-  <div class="column">
-    ...
-  </div>
+<div id="wood-texture">
+  <!-- My height is collapsed! -->
+  <div class="column">...</div>
+  <div class="column">...</div>
 </div>
 ```
 
@@ -185,12 +182,8 @@ developers have invented. It is called a clearfix.
 
 ```html
 <div id="wood-texture" class="clearfix">
-  <div class="column">
-    ...
-  </div>
-  <div class="column">
-    ...
-  </div>
+  <div class="column">...</div>
+  <div class="column">...</div>
 </div>
 ```
 
@@ -241,7 +234,7 @@ lesson.
 ### Column Structure
 
 There are many recipes for creating column structure, but we will focus on
-creating a liquid column structure using percents and floats. 
+creating a liquid column structure using percents and floats.
 
 #### Centering
 
@@ -249,9 +242,7 @@ We start out by creating a wrapper class that will wrap all elements in our
 layout and center them.
 
 ```html
-<div class="wrapper">
-  ...
-</div>
+<div class="wrapper">...</div>
 ```
 
 Next we can tell that wrapper to have a fixed width, and to center using margin
@@ -280,12 +271,8 @@ to maintain their row like behavior.
 
 ```html
 <div class="wrapper">
-  <div class="row">
-    ...
-  </div>
-  <div class="row">
-    ...
-  </div>
+  <div class="row">...</div>
+  <div class="row">...</div>
 </div>
 ```
 
@@ -349,7 +336,7 @@ important how they are sized, any margin, and floating.
 Let's set their CSS to float, we will give them (2%) two percent margin on their
 left side, except the first column which will have (0) zero margin. This is
 again a recipe for making space between all the columns except on the beginning
-and ending of each row. 
+and ending of each row.
 
 ```css
 .wrapper {
@@ -454,8 +441,12 @@ our rows. Let's apply these calculated widths into our CSS,
   margin-left: 0;
 }
 
-.col-4 { width: 32%; }
-.col-8 { width: 66%; }
+.col-4 {
+  width: 32%;
+}
+.col-8 {
+  width: 66%;
+}
 ```
 
 Let's say we wanted the flexibility to set a column to any size within our
@@ -464,18 +455,42 @@ before by subtracting margin from 100% and dividing up the remaining space for
 each column width. Here are those widths assuming a two percent margin,
 
 ```css
-.col-1  { width: 6.5%;  }
-.col-2  { width: 15%;   }
-.col-3  { width: 23.5%; }
-.col-4  { width: 32%;   }
-.col-5  { width: 40.5%; }
-.col-6  { width: 49%;   }
-.col-7  { width: 57.5%; }
-.col-8  { width: 66%;   }
-.col-9  { width: 74.5%; }
-.col-10 { width: 83%;   }
-.col-11 { width: 91.5%; }
-.col-12 { width: 100%;  }
+.col-1 {
+  width: 6.5%;
+}
+.col-2 {
+  width: 15%;
+}
+.col-3 {
+  width: 23.5%;
+}
+.col-4 {
+  width: 32%;
+}
+.col-5 {
+  width: 40.5%;
+}
+.col-6 {
+  width: 49%;
+}
+.col-7 {
+  width: 57.5%;
+}
+.col-8 {
+  width: 66%;
+}
+.col-9 {
+  width: 74.5%;
+}
+.col-10 {
+  width: 83%;
+}
+.col-11 {
+  width: 91.5%;
+}
+.col-12 {
+  width: 100%;
+}
 ```
 
 Pretty great! I could now link to this CSS in any web site and make use of the
@@ -491,7 +506,9 @@ our math for their widths, we could set or `box-sizing` to `border-box`. Here is
 the full finished code below:
 
 ```css
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
 .wrapper {
   width: 960px;
@@ -520,18 +537,42 @@ the full finished code below:
   margin-left: 0;
 }
 
-.col-1  { width: 6.5%;  }
-.col-2  { width: 15%;   }
-.col-3  { width: 23.5%; }
-.col-4  { width: 32%;   }
-.col-5  { width: 40.5%; }
-.col-6  { width: 49%;   }
-.col-7  { width: 57.5%; }
-.col-8  { width: 66%;   }
-.col-9  { width: 74.5%; }
-.col-10 { width: 83%;   }
-.col-11 { width: 91.5%; }
-.col-12 { width: 100%;  }
+.col-1 {
+  width: 6.5%;
+}
+.col-2 {
+  width: 15%;
+}
+.col-3 {
+  width: 23.5%;
+}
+.col-4 {
+  width: 32%;
+}
+.col-5 {
+  width: 40.5%;
+}
+.col-6 {
+  width: 49%;
+}
+.col-7 {
+  width: 57.5%;
+}
+.col-8 {
+  width: 66%;
+}
+.col-9 {
+  width: 74.5%;
+}
+.col-10 {
+  width: 83%;
+}
+.col-11 {
+  width: 91.5%;
+}
+.col-12 {
+  width: 100%;
+}
 ```
 
 ### Pre-Built Grid Systems
@@ -542,6 +583,17 @@ scratch. It is worth mentioning here however, that there are many different
 pre-built CSS grid systems that you can download and use. This does take a lot
 of the headache out of creating floating column structure, but still you will be
 glad you know how they work and how to build your own if necessary!
+
+## Modern Float Usage
+
+New CSS layout systems such as Flexbox and CSS Grid (covered later) have made
+Float based layouts redundant. So how do developers use `float` these days?
+
+Float is the only way text can wrap around embedded elements. The
+`shape-outside` and `shape-margin` properties even allow you to specify how the
+shape should wrap around an element. You can learn more about using the
+`shape-outside` property
+[in this article](https://css-tricks.com/almanac/properties/s/shape-outside/).
 
 ## Conclusion
 
@@ -572,4 +624,5 @@ summarize:
 - [MDN - CSS - Clear](https://developer.mozilla.org/en-US/docs/Web/CSS/clear)
 - [CSS Tricks - Clearfix](https://css-tricks.com/snippets/css/clear-fix/)
 - [CSS - Light Grid Example](https://github.com/jongrover/css-light-grid/blob/master/css/light-grid.css)
+- [CSS Tricks - shape-outside](https://css-tricks.com/almanac/properties/s/shape-outside/)
 - [Site Point - Understanding Grid Systems](http://www.sitepoint.com/understanding-css-grid-systems/)
